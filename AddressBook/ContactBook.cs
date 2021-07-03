@@ -8,7 +8,7 @@ namespace AddressBook
     {
         public static int cnt = 0;
         //Creating list to add contact details
-        public List<ContactDetails> contactList;
+        public List <ContactDetails> contactList;
         public ContactBook()
         {
             contactList = new List<ContactDetails>();
