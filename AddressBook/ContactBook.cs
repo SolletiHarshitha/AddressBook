@@ -11,13 +11,13 @@ namespace AddressBook
         public List<ContactDetails> contactList;
         public ContactBook()
         {
-            this.contactList = new List<ContactDetails>();
+            contactList = new List<ContactDetails>();
         }
         //Adding the contact details to address book
         public void AddContact(ContactDetails cd)
         {
             
-            this.contactList.Add(cd);
+            contactList.Add(cd);
             cnt++;
         }
         //Finding phone number
