@@ -31,6 +31,7 @@ namespace AddressBook
             int i = contactList.FindIndex(cd => cd.firstName.Equals(name));
             return i;
         }
+        //Deleting contact
         public void DeleteContact(int index)
         {
             contactList.RemoveAt(index);
