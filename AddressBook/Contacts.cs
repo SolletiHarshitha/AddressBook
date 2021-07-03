@@ -6,6 +6,7 @@ namespace AddressBook
 {
     class Contacts
     {
+        //Reading the contact details
         public static void ReadInput()
         {
             Console.WriteLine("Enter first name : ");
@@ -26,6 +27,8 @@ namespace AddressBook
             string email = Console.ReadLine();
             PrintDetails(firstName,lastName,address,city,state,zipcode,phonenumber,email);
         }
+
+        //Printing the contact details
         private static void PrintDetails(string firstName,string lastName,string address,string city,string state,int zipcode,long phonenumber,string email)
         {
             Console.WriteLine("First name: "+firstName);
