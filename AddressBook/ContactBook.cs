@@ -25,5 +25,10 @@ namespace AddressBook
         {
             return contactList.FindIndex(cd=>cd.phonenumber==number);
         }
+        public int FindByName(string name)
+        {
+            int i = contactList.FindIndex(cd => cd.firstName.Equals(name));
+            return i;
+        }
     }
 }

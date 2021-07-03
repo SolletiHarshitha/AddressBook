@@ -9,14 +9,16 @@ namespace AddressBook
             Console.WriteLine("Welcome to Address Book");
             ContactBook book = new ContactBook();
             
-            int option = 1;
+            bool end=false;
             //Choosing option
-            while (option == 1)
+            while (!end)
             {
                 Console.WriteLine("Choose an option to perform : ");
                 Console.WriteLine("1.Adding the contact details to Address Book");
-                Console.WriteLine("2.Exit");
-                option = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("2.Edit the contact details");
+                Console.WriteLine("3.Number of contacts in address book");
+                Console.WriteLine("4.Exit");
+                int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
                     case 1:
@@ -35,13 +37,33 @@ namespace AddressBook
                         }
                         break;
                     case 2:
+                        Console.WriteLine("Enter the first name of a contact you wish to edit : ");
+                        string firstname = Console.ReadLine();
+                        int index2 = book.FindByName(firstname);
+                        if(index2 == -1)
+                        {
+                            Console.WriteLine("No contact exists with that name..");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Contact exists. Now you can edit it..");
+                            ContactDetails cd2 = new ContactDetails();
+                            cd2.ReadInput();
+                            book.contactList[index2] = cd2;
+                            Console.WriteLine("Contact Details updated successfully!");
+                        }
+                        break;
+                    case 3:
+                        Console.WriteLine("Count of contacts in address book : " + ContactBook.cnt);
+                        break;
+                    case 4:
                         //Exit
+                        end = true;
                         break;
                     default:
                         break;
                 }
             }
-            Console.WriteLine("Count of contacts in address book : "+ContactBook.cnt);
         }
     }
 }
