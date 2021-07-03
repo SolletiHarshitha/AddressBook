@@ -11,7 +11,7 @@ namespace AddressBook
             ContactBook book = new ContactBook();
             CreateContactBooks ccb = new CreateContactBooks();
             bool end=false;
-            //Choosing option
+            
             while (!end)
             {
                 //choosing an address book
@@ -28,12 +28,15 @@ namespace AddressBook
                     Console.WriteLine("Book does not exists. So creating that book");
                     CreateContactBooks.AddContactBook(bookName,book);
                 }
+
+                //Choosing option
                 Console.WriteLine("Choose an option to perform in "+bookName+" : ");
                 Console.WriteLine("1.Adding the contact details to Address Book");
                 Console.WriteLine("2.Edit the contact details");
                 Console.WriteLine("3.Delete the contact details");
                 Console.WriteLine("4.Number of contacts in address book");
                 Console.WriteLine("5.Exit");
+
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -97,6 +100,7 @@ namespace AddressBook
                         break;
                 }
             }
+            //Printing count of contact books
             Console.WriteLine("Number of contact books : "+CreateContactBooks.count);
         }
     }
