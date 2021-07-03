@@ -37,6 +37,7 @@ namespace AddressBook
                         }
                         break;
                     case 2:
+                        //Editing contact details
                         Console.WriteLine("Enter the first name of a contact you wish to edit : ");
                         string firstname = Console.ReadLine();
                         int index2 = book.FindByName(firstname);
@@ -54,6 +55,7 @@ namespace AddressBook
                         }
                         break;
                     case 3:
+                        //Printing count of contacts
                         Console.WriteLine("Count of contacts in address book : " + ContactBook.cnt);
                         break;
                     case 4:

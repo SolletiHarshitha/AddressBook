@@ -20,11 +20,12 @@ namespace AddressBook
             this.contactList.Add(cd);
             cnt++;
         }
-        //Finding phone number
+        //Finding by phone number
         public int FindByPhonenumber(long number)
         {
             return contactList.FindIndex(cd=>cd.phonenumber==number);
         }
+        //Finding by name
         public int FindByName(string name)
         {
             int i = contactList.FindIndex(cd => cd.firstName.Equals(name));
