@@ -43,10 +43,13 @@ namespace AddressBook
                     case 1:
                         //Adding contact details
                         ContactDetails cd = new ContactDetails();
-                        cd.ReadInput();
-                        int index = book.FindByPhonenumber(cd.phonenumber);
+                        Console.WriteLine("Enter a name :");
+                        string names = Console.ReadLine();
+                        int index = book.FindByName(names);
                         if (index == -1)
                         {
+                            Console.WriteLine("The name with that contact does not exist so I am adding it....");
+                            cd.ReadInput();
                             book.AddContact(cd);
                             Console.WriteLine("Contact updated successfully in "+bookName);
                         }
