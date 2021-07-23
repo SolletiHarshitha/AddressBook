@@ -5,20 +5,18 @@ namespace AddressBook
 {
     class Program
     {
-        public static string bookName;
-        // Dictionary for Contacts which are in same City ......
+        // Dictionary for Contacts which are in same City
         public static Dictionary<string, List<ContactDetails>> CityWiseContacts = new Dictionary<string, List<ContactDetails>>();
-        // Dictionary for Contacts which are in same State......
+        // Dictionary for Contacts which are in same State
         public static Dictionary<string, List<ContactDetails>> StateWiseContacts = new Dictionary<string, List<ContactDetails>>();
        
-
-
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book");
             ContactBook book = new ContactBook();
             CreateContactBooks ccb = new CreateContactBooks();
             ContactDetails cd = new ContactDetails();
+            string bookName;
             bool end = false;
             int option;
             while (!end)
@@ -29,7 +27,7 @@ namespace AddressBook
                 switch (option)
                 {
                     case 1:
-                        //choosing an address book
+                        //Creating an address book
                         Console.WriteLine("Enter name of the contact book :");
                         bookName = Console.ReadLine();
                         bool result = ccb.FindByName(bookName);
@@ -41,21 +39,24 @@ namespace AddressBook
                         {
                             Console.WriteLine("Book does not exists. So creating that book");
                             ccb.AddContactBook(bookName, book);
-                            Operations();
+                            Operations(bookName);
                         }
                         break;
                     case 2:
+                        //Editing in existing address book
                         Console.WriteLine("Enter name of the contact book yow want work with ");
                         bookName = Console.ReadLine();
-                        Operations();
+                        Operations(bookName);
                         break;
                     case 3:
+                        //View the contact by city name or state name
                         ViewContactByCityOrState();
                         break;
                 }
             }
         }
-        public static void Operations()
+        //Performing operations in address book
+        public static void Operations(string bookName)
         {
             ContactBook book = new ContactBook();
             ContactDetails cd = new ContactDetails();
@@ -74,7 +75,6 @@ namespace AddressBook
                 {
                     case 1:
                         //Adding contact details
-                        //ContactDetails cd = new ContactDetails();
                         Console.WriteLine("Enter a name :");
                         string names = Console.ReadLine();
                         int index = book.FindByName(names);
@@ -88,7 +88,7 @@ namespace AddressBook
                         }
                         else
                         {
-                            Console.WriteLine("Contact already exists in " + bookName);
+                            Console.WriteLine("Contact with the name {0} already exists in {1}",names, bookName);
                         }
                         break;
                     case 2:
@@ -125,7 +125,7 @@ namespace AddressBook
                         }
                         break;
                     case 4:
-                        //Printing count of contacts
+                        //Printing number of contacts
                         Console.WriteLine("Count of contacts in " + bookName + " : " + ContactBook.cnt);
                         break;
                     case 5:
@@ -136,10 +136,10 @@ namespace AddressBook
                         break;
                 }
             }
-            //Printing count of contact books
+            //Printing number of contact books
             Console.WriteLine("Number of contact books : " + CreateContactBooks.count);
         }
-        
+        //Adding the city name or state name in to the dictionary
         public static void AddCityOrState(ContactDetails cd)
         {
             if (!CityWiseContacts.ContainsKey(cd.city))
@@ -165,6 +165,7 @@ namespace AddressBook
                 stateContact.Add(cd);
             }
         }
+        //Viewing the contact by city name or state name
         public static void ViewContactByCityOrState()
         {
             ContactDetails cd = new ContactDetails();
@@ -175,6 +176,7 @@ namespace AddressBook
             switch (choice)
             {
                 case 1:
+                    //Searching contact by city name
                     Console.WriteLine("Enter the city name : ");
                     string cityName = Console.ReadLine();
                     List<ContactDetails> cityContact = CityWiseContacts[cityName];
@@ -185,6 +187,7 @@ namespace AddressBook
                     }
                     break;
                 case 2:
+                    //Searching contact by state name
                     Console.WriteLine("Enter the state name : ");
                     string stateName = Console.ReadLine();
                     List<ContactDetails> stateContact = StateWiseContacts[stateName];
