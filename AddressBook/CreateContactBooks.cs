@@ -15,7 +15,7 @@ namespace AddressBook
             contactBookList = new Dictionary<string, ContactBook>();
         }
         //Adding contact book
-        public static void AddContactBook(string bookName,ContactBook book)
+        public void AddContactBook(string bookName,ContactBook book)
         {
 
             contactBookList.Add(bookName,book);

@@ -15,6 +15,7 @@ namespace AddressBook
         public int zipcode;
         public long phonenumber;
         public string email;
+        
 
         //Reading the contact details
         public void ReadInput()
@@ -35,6 +36,16 @@ namespace AddressBook
             phonenumber = Convert.ToInt64(Console.ReadLine());
             Console.WriteLine("Enter email id : ");
             email = Console.ReadLine();
+        }
+        public static void DisplayContact(ContactDetails cd)
+        {
+            Console.WriteLine("Name : " + cd.firstName + " " + cd.lastName);
+            Console.WriteLine("Address : "+cd.address);
+            Console.WriteLine("City : "+cd.city);
+            Console.WriteLine("State : " + cd.state);
+            Console.WriteLine("Zipcode : " + cd.zipcode);
+            Console.WriteLine("PhoneNumber : " + cd.phonenumber);
+            Console.WriteLine("Email : " + cd.email);
         }
     }
 }
