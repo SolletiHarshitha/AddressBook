@@ -86,7 +86,7 @@ namespace AddressBook
                             cd.ReadInput();
                             book.AddContact(cd);
                             AddCityOrState(cd);
-                            FileOperation.WriteInToFile(bookName,book);
+                            FileOperation.WriteIntoCSVFile(bookName,book);
                             Console.WriteLine("Contact updated successfully in " + bookName);
                         }
                         else
@@ -109,7 +109,7 @@ namespace AddressBook
                             ContactDetails cd2 = new ContactDetails();
                             cd2.ReadInput();
                             book.contactList[index2] = cd2;
-                            FileOperation.WriteInToFile(bookName, book);
+                            FileOperation.WriteIntoCSVFile(bookName, book);
                             Console.WriteLine("Contact Details updated successfully in " + bookName);
                         }
                         break;
