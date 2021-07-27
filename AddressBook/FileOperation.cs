@@ -10,7 +10,7 @@ namespace AddressBook
     {
         public static void ReadFromFile(string bookName)
         {
-            string filePath = $"D://tvstraining//AddressBook//AddressBook//BinaryFile//{bookName}.txt";
+            string filePath = $"D://tvstraining//AddressBook//AddressBook//FileIO//{bookName}.txt";
             string lines = File.ReadAllText(filePath);
             Console.WriteLine(lines);
         }
