@@ -2,13 +2,15 @@
 using System.Globalization;
 using System.IO;
 using CsvHelper;
+using Newtonsoft.Json;
+
 namespace AddressBook
 {
     class FileOperation
     {
         public static void ReadFromFile(string bookName)
         {
-            string filePath = $"D://tvstraining//AddressBook//AddressBook//CSVFile//{bookName}.csv";
+            string filePath = $"D://tvstraining//AddressBook//AddressBook//FileIO//{bookName}.txt";
             string lines = File.ReadAllText(filePath);
             Console.WriteLine(lines);
         }
@@ -31,6 +33,12 @@ namespace AddressBook
             }
         }
 
+        public static void ReadFromCSVFile(string bookName)
+        {
+            string filePath = $"D://tvstraining//AddressBook//AddressBook//CSVFile//{bookName}.csv";
+            string lines = File.ReadAllText(filePath);
+            Console.WriteLine(lines);
+        }
         public static void WriteIntoCSVFile(string bookName, ContactBook contactBook)
         {
             string path = ($"D://tvstraining//AddressBook//AddressBook//CSVFile//{bookName}.csv");
@@ -43,6 +51,5 @@ namespace AddressBook
                 }
             }
         }
-
     }
 }

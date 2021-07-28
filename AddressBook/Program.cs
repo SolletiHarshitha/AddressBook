@@ -49,7 +49,7 @@ namespace AddressBook
                     case 5:
                         Console.WriteLine("Enter the name of the contact book you wish to read : ");
                         bookName = Console.ReadLine();
-                        FileOperation.ReadFromFile(bookName);
+                        FileOperation.ReadFromCSVFile(bookName);
                         break;
                     case 6:
                         end = true;
