@@ -49,7 +49,7 @@ namespace AddressBook
                     case 5:
                         Console.WriteLine("Enter the name of the contact book you wish to read : ");
                         bookName = Console.ReadLine();
-                        FileOperation.ReadFromCSVFile(bookName);
+                        FileOperation.ReadFromJSONFile(bookName);
                         break;
                     case 6:
                         end = true;
@@ -86,7 +86,7 @@ namespace AddressBook
                             cd.ReadInput();
                             book.AddContact(cd);
                             AddCityOrState(cd);
-                            FileOperation.WriteIntoCSVFile(bookName,book);
+                            FileOperation.WriteIntoJSONFile(bookName,book);
                             Console.WriteLine("Contact updated successfully in " + bookName);
                         }
                         else
@@ -109,7 +109,7 @@ namespace AddressBook
                             ContactDetails cd2 = new ContactDetails();
                             cd2.ReadInput();
                             book.contactList[index2] = cd2;
-                            FileOperation.WriteIntoCSVFile(bookName, book);
+                            FileOperation.WriteIntoJSONFile(bookName, book);
                             Console.WriteLine("Contact Details updated successfully in " + bookName);
                         }
                         break;
