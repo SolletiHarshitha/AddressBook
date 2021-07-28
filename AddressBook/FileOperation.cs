@@ -39,19 +39,10 @@ namespace AddressBook
             {
                 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
-                    csvWriter.WriteField("Contact Book Name : " + bookName);
-                    csvWriter.WriteHeader<ContactDetails>();
-                    csvWriter.NextRecord();
-
-                    foreach (var l in contactBook.contactList)
-                    {
-                        csvWriter.WriteField(l);
-                        csvWriter.NextRecord();
-                    }
+                    csvWriter.WriteField(contactBook.contactList);
                 }
             }
         }
-
 
     }
 }
